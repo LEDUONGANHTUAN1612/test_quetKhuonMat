@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Face ID Scanner (Node.js + React)
 
 Ung dung demo quet khuon mat bang browser va sinh ma dinh danh rieng cho tung nguoi dung.
@@ -53,3 +54,6 @@ npm run dev
 - Day la demo ky thuat, khong phai he thong xac thuc sinh trac hoc cap doanh nghiep.
 - Da co co che giam dao dong descriptor bang lay nhieu mau + so khop nguong.
 - De dat muc do production, ban nen them anti-spoofing, co che enroll/chinh sua profile, va quy trinh bao mat du lieu sinh trac hoc.
+=======
+# test_quetKhuonMat
+>>>>>>> 667bb2d559a7963f08202d1fc2a12567a6f7bad9

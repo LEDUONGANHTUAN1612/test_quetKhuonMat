@@ -8,6 +8,7 @@ frontend/dist/
 
 # environment files
 backend/.env
+backend/data/
 
 # logs
 npm-debug.log*
