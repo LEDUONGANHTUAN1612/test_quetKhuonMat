@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import * as faceapi from '@vladmandic/face-api';
 
-const BACKEND_URL = 'http://localhost:4000';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:4000').replace(/\/+$/, '');
 const MODEL_URL = 'https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.7.15/model/';
 const SCAN_SAMPLES = 5;
 const SCAN_INTERVAL_MS = 180;
@@ -110,7 +110,7 @@ export default function App() {
 
       const averagedDescriptor = averageDescriptors(descriptors);
 
-      const response = await fetch(`${BACKEND_URL}/api/identify`, {
+      const response = await fetch(`${API_BASE_URL}/api/identify`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ descriptor: averagedDescriptor }),

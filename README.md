@@ -54,6 +54,13 @@ npm run dev
 - Day la demo ky thuat, khong phai he thong xac thuc sinh trac hoc cap doanh nghiep.
 - Da co co che giam dao dong descriptor bang lay nhieu mau + so khop nguong.
 - De dat muc do production, ban nen them anti-spoofing, co che enroll/chinh sua profile, va quy trinh bao mat du lieu sinh trac hoc.
+
+## Deploy Vercel/Render (tranh loi Failed to fetch)
+
+1. Frontend (Vercel): tao env `VITE_API_URL` tro toi backend public URL, vi du `https://your-backend.onrender.com`
+2. Backend (Render/Railway/...): tao env `CORS_ORIGIN` la domain frontend, vi du `https://your-app.vercel.app`
+3. Neu co nhieu domain, dung danh sach phan tach boi dau phay trong `CORS_ORIGIN`
+  - Vi du: `https://your-app.vercel.app,https://www.your-app.vercel.app`
 =======
 # test_quetKhuonMat
 >>>>>>> 667bb2d559a7963f08202d1fc2a12567a6f7bad9

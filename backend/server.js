@@ -19,7 +19,29 @@ const PROFILE_FILE = path.join(DATA_DIR, 'profiles.json');
 
 let profiles = [];
 
-app.use(cors({ origin: CORS_ORIGIN }));
+const allowedOrigins = CORS_ORIGIN.split(',')
+  .map((origin) => origin.trim().replace(/\/+$/, ''))
+  .filter(Boolean);
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      // Allow non-browser clients (no Origin header) and configured browser origins.
+      if (!origin) {
+        callback(null, true);
+        return;
+      }
+
+      const normalizedOrigin = origin.replace(/\/+$/, '');
+      if (allowedOrigins.includes('*') || allowedOrigins.includes(normalizedOrigin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error(`CORS blocked for origin: ${origin}`));
+    },
+  })
+);
 app.use(express.json({ limit: '1mb' }));
 
 function normalizeDescriptor(descriptor) {
