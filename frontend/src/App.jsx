@@ -3,7 +3,7 @@ import * as faceapi from '@vladmandic/face-api';
 
 const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:4000').replace(/\/+$/, '');
 const MODEL_URL = 'https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.7.15/model/';
-const SCAN_SAMPLES = 5;
+const SCAN_SAMPLES = 10;
 const SCAN_INTERVAL_MS = 180;
 
 function sleep(ms) {
@@ -101,6 +101,8 @@ export default function App() {
         if (i < SCAN_SAMPLES - 1) {
           await sleep(SCAN_INTERVAL_MS);
         }
+
+        console.log(`Mau ${i + 1}/${SCAN_SAMPLES} da duoc xu ly. /${detection.descriptor}`);
       }
 
       if (!descriptors.length) {
