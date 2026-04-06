@@ -101,8 +101,6 @@ export default function App() {
         if (i < SCAN_SAMPLES - 1) {
           await sleep(SCAN_INTERVAL_MS);
         }
-
-        console.log(`Mau ${i + 1}/${SCAN_SAMPLES} da duoc xu ly. /${detection.descriptor}`);
       }
 
       if (!descriptors.length) {
